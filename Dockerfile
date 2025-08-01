@@ -1,4 +1,4 @@
-FROM ruby:3.2.2-slim
+FROM ruby:3.4.4-slim
 
 ENV RAILS_ENV=production NODE_ENV=production
 
