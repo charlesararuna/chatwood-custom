@@ -21,7 +21,7 @@ COPY . .
 RUN gem install bundler && \
   bundle config set without 'development test' && \
   bundle install && \
-  yarn install && \
+  pnpm install && \
   bundle exec rails assets:precompile
 
 # Expõe a porta padrão
