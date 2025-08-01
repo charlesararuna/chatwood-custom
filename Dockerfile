@@ -5,7 +5,7 @@ ENV RAILS_ENV=production NODE_ENV=production
 # Instala dependências do sistema
 RUN apt-get update -qq && \
   apt-get install -y build-essential libpq-dev curl git nodejs npm libvips && \
-  npm install -g yarn && \
+  corepack enable && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
