@@ -6,7 +6,7 @@ ENV SECRET_KEY_BASE=dummy_placeholder_for_assets
 
 # Instala dependências do sistema
 RUN apt-get update -qq && \
-  apt-get install -y build-essential libpq-dev curl git libvips && \
+  apt-get install -y build-essential libpq-dev postgresql-client curl git libvips && \
   curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
   apt-get install -y nodejs && \
   corepack enable && \
