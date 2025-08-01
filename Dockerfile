@@ -1,6 +1,8 @@
 FROM ruby:3.4.4-slim
 
-ENV RAILS_ENV=production NODE_ENV=production
+ENV RAILS_ENV=production 
+ENV NODE_ENV=production
+ENV SECRET_KEY_BASE=dummy_placeholder_for_assets
 
 # Instala dependências do sistema
 RUN apt-get update -qq && \
@@ -8,6 +10,7 @@ RUN apt-get update -qq && \
   curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
   apt-get install -y nodejs && \
   corepack enable && \
+  corepack prepare pnpm@8.15.5 --activate && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
@@ -18,6 +21,8 @@ WORKDIR /app
 COPY . .
 
 # Instala o Bundler e dependências Ruby e JS
+
+
 RUN gem install bundler && \
   bundle config set without 'development test' && \
   bundle install && \
